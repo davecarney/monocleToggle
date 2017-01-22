@@ -1,40 +1,46 @@
 /*
 * monocleToggle() 1.0.0
 *
-* Copyright 2015
+* Copyright 2016
 *
 * By Dave Carney, http://www.fallingmonocle.com
 * Mimics hover functionality for li's with dropdown navigation for touchscreens
 * Available for use under the MIT License
-*
-* Borrows heavily and updates from doubleTapToGo() By Osvaldas Valutis, www.osvaldas.info
 */
 
 (function ( $ ) {
 	$.fn.monocleToggle = function() {
-		if (!('ontouchstart' in window) &&
-			!navigator.maxTouchPoints &&
-			!navigator.userAgent.toLowerCase().match( /windows phone os 7/i )) {
-			return false;
-		}
+
 		this.each(function() {
-			var menu_open = false;
+
+			$(this).on('mouseenter', function(e) {
+				$(this).children('ul').show();
+					$(e.target).closest('nav li:has(ul)').addClass('monocle-hover');
+					setTimeout(function() {
+						$('.monocle-hover').removeClass('monocle-hover').addClass('monocle-open');
+					}, 500);
+			});
 
 			$(this).on('click', function(e) {
-					if (menu_open === false) {
+					if (!$(this).closest('nav li:has(ul)').hasClass('monocle-open')) {
 						e.preventDefault();
-						$(this).closest('ul').show();
-						menu_open = true;
+						$(this).children('ul').show();
+						setTimeout(function() {
+							$(e.target).closest('nav li:has(ul)').addClass('monocle-open');
+						}, 500);
 					}
 			});
-			$(document).on('click touchstart pointerdown', function(e) {
-				if (!$(e.target).closest('nav li:has(ul)').length &&
-					!$(e.target).is('nav li:has(ul)')) {
-						if($('nav li:has(ul)').is(':visible')) {
-							$(this).closest('ul').hide();
-							menu_open = false;
-						}
-				}
+
+			$(document).on('click touchstart onpointerdown', function(e) {
+				if (!$(e.target).parents('nav li:has(ul)').hasClass('monocle-open')) {
+						$('.monocle-open').removeClass('monocle-open').find('ul').hide();
+					}
+			});
+
+			$(document).on('mousemove', function(e) {
+				if (!$(e.target).closest('nav li:has(ul)').is(':visible')) {
+						$('.monocle-hover, .monocle-open').removeClass('monocle-hover monocle-open').find('ul').hide();
+					}
 			});
 
 		});
