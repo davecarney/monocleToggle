@@ -1,5 +1,5 @@
 /*
-* monocleToggle() 1.1.2
+* monocleToggle() 1.2.0
 *
 * Copyright 2016
 *
@@ -14,6 +14,12 @@
 		this.each(function() {
 
 			$(this).on('mouseenter', function(e) {
+				// Useful for if a dropdown overlaps a top level li
+				// Without it, the "mousemove" check would not hide the ul you are leaving because the cursor would still be within the nav
+				if (!$(this).closest('nav li:has(ul)').hasClass('monocle-open') &&
+					!$(this).parents('nav li:has(ul)').hasClass('monocle-open')) {
+					$('.monocle-open').removeClass('monocle-open').find('ul').hide();
+				}
 
 				// When the cursor hovers over the li find the nested ul/ul's and reveal it/them
 				$(this).children('ul').show();
