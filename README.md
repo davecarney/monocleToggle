@@ -11,21 +11,21 @@
 ### Setup ###
 
 * Works with conventionally marked up navigation
-`<nav>
-<ul>
-<li>
-<a href="#">Parent Menu Item</a>
-<ul>
-<li>
-<a href="#">Child Menu Item</a>
-</li>
-</ul>
-</li>
-</ul>
-</nav>`
+    `<nav>
+    <ul>
+    <li>
+    <a href="#">Parent Menu Item</a>
+    <ul>
+    <li>
+    <a href="#">Child Menu Item</a>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </nav>`
 
 * Watches for
-`$('nav li:has(ul)').monocleToggle();`
+    `$('nav li:has(ul)').monocleToggle();`
 
 * Link to the plugin in your website or copy/paste the function into your scripts file.
 
