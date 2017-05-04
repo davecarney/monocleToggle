@@ -18,7 +18,7 @@
 				// Without it, the "mousemove" check would not hide the ul you are leaving because the cursor would still be within the nav
 				if (!$(this).closest('nav li:has(ul)').hasClass('monocle-open') &&
 					!$(this).parents('nav li:has(ul)').hasClass('monocle-open')) {
-					$('.monocle-open, .monocle-hover').removeClass('monocle-open').find('ul').hide();
+					$('.monocle-open, .monocle-hover').removeClass('monocle-open monocle-hover').find('ul').hide();
 				}
 
 				// When the cursor hovers over the li find the nested ul/ul's and reveal it/them
