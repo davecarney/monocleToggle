@@ -37,7 +37,6 @@
 * Style the classes ".monocle-hover, .monocle-open" (Both of them) to target your hover states.
 
 ```
-#!css
 
 .monocle-hover a,
 .monocle-open a,
