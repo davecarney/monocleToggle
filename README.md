@@ -12,7 +12,6 @@
 
 * Works with conventionally marked up navigation
 ```
-#!html
 
 <nav>
    <ul>
@@ -28,24 +27,33 @@
 
 ```
 
-
 * Watches for
     `$('nav li:has(ul)').monocleToggle();`
 
 * Link to jQuery.
+
 * Link to the plugin in your website or copy/paste the function into your scripts file.
+
 * Style the classes ".monocle-hover, .monocle-open" (Both of them) to target your hover states.
 
 ```
+#!css
+
 .monocle-hover a,
 .monocle-open a,
 a:hover {
-    // Hover styles here
+    Hover styles here
 }
+
 ```
 
 * Nothing else to configure. monocleToggle does the rest.
 
+
+### Citation ###
+Big Thanks to Osvaldas Valutis
+
+His plugin [doubleTapToGo](https://osvaldas.info/drop-down-navigation-responsive-and-touch-friendly) was the building block for MonocleToggle.
 
 ### Dependencies ###
 jQuery 1.7
