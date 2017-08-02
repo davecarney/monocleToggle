@@ -39,8 +39,9 @@
 					if (!$(this).closest('nav li:has(ul)').hasClass('monocle-open')) {
 						e.preventDefault();
 						$(this).children('ul').show();
+						$(e.target).closest('nav li:has(ul)').addClass('monocle-hover');
 						setTimeout(function() {
-							$(e.target).closest('nav li:has(ul)').addClass('monocle-open');
+							$('monocle-hover').addClass('monocle-open');
 						}, 500);
 					}
 			});
