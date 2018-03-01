@@ -41,7 +41,7 @@
 						$(this).children('ul').show();
 						$(e.target).closest('nav li:has(ul)').addClass('monocle-hover');
 						setTimeout(function() {
-							$('monocle-hover').addClass('monocle-open');
+							$('monocle-hover').addClass('monocle-open').removeClass('monocle-hover');
 						}, 500);
 					}
 			});
