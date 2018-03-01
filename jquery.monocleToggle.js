@@ -1,5 +1,5 @@
 /*
-* monocleToggle() 1.2.2
+* monocleToggle() 1.2.4
 *
 * Copyright 2016
 *
